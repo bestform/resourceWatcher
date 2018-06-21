@@ -52,12 +52,12 @@ func checkUrl(url string) error {
 	if err != nil {
 		return err
 	}
-	if !HasContentForResource(url) {
-		SetContentForResource(url, string(content))
+	if !hasContentForResource(url) {
+		setContentForResource(url, string(content))
 		fmt.Println("New Entry for URL: " + url)
 		return nil
 	}
-	if HasContentChanged(url, string(content)) {
+	if hasContentChanged(url, string(content)) {
 		fmt.Println("Content has changed for URL: " + url)
 		// @todo: if flagged 'update all' write new!
 	}

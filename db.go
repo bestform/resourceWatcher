@@ -16,16 +16,16 @@ func initDb(resource io.ReadWriter) error {
 	return readDb()
 }
 
-func HasContentForResource(name string) bool {
+func hasContentForResource(name string) bool {
 	_, exists := db[name]
 	return exists
 }
 
-func SetContentForResource(name string, content string) {
+func setContentForResource(name string, content string) {
 	db[name] = hash(content)
 }
 
-func HasContentChanged(name string, content string) bool {
+func hasContentChanged(name string, content string) bool {
 	if _, exists := db[name]; !exists {
 		return false
 	}
